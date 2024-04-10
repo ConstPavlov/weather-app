@@ -1,0 +1,19 @@
+@import '../../app/scss/variables';
+.button {
+	text-decoration: none;
+	border: none;
+	color: black;
+	border-radius: 12px;
+	padding: 0.44rem 1.55rem;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: 1.1rem;
+	background-color: white;
+	transition: background-color 0.4s ease-in-out;
+	box-shadow: 1px 2px 8px rgba(223, 56, 215, 0.5);
+
+	&:hover {
+		background-color: $backgroundBlock;
+		box-shadow: 1px 2px 30px #df38d74d;
+	}
+}

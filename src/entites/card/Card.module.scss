@@ -1,0 +1,67 @@
+$block: rgb(248, 221, 246);
+$background: rgb(241, 241, 241);
+$primary: rgb(162, 107, 214);
+$secondary: rgb(115, 66, 198);
+
+.card {
+	padding: 0.9rem 2.2rem;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	background-color: $block;
+	margin-bottom: 1.6rem;
+	box-shadow: 1px 2px 8px rgba(223, 56, 215, 0.5);
+
+	p {
+		font-weight: bold;
+		font-size: 1.2rem;
+	}
+	span {
+		font-size: 1.2rem;
+	}
+
+	.block {
+		display: flex;
+		align-items: center;
+		column-gap: 0.6rem;
+		margin-top: 0.65rem;
+	}
+
+	.info {
+		margin-bottom: 1rem;
+		.weather {
+		}
+		.wind {
+		}
+	}
+}
+.btnBlock {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.btnDelete {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.3rem;
+	font-size: 1.5rem;
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	color: $primary;
+	transition: box-shadow 0.8s ease-in-out;
+	// z-index: 100;
+
+	&:hover {
+		background-color: white;
+		box-shadow: 1px 2px 20px 20px rgba(223, 56, 215, 0.4);
+	}
+}
+
+.pic {
+	width: 8rem;
+}

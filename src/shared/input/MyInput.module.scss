@@ -1,0 +1,14 @@
+.myInp {
+	padding: 6px 20px;
+	background: rgb(255, 255, 255);
+	margin-top: 20px;
+	color: #000000;
+	font-size: 18px;
+	border-radius: 6px;
+	border-radius: 8px;
+	box-shadow: 1px 2px 18px rgba(59, 51, 153, 0.558);
+
+	&::placeholder {
+		font-size: 14px;
+	}
+}

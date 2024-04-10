@@ -1,0 +1,14 @@
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.title {
+		text-decoration: none;
+		color: #000000;
+		font-size: 0.8rem;
+		margin-right: 1rem;
+	}
+	.img {
+		width: 3.33rem;
+	}
+}

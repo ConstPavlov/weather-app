@@ -1,0 +1,20 @@
+.cities {
+	margin-top: 10px;
+	padding: 1.5rem;
+	border-radius: 8px;
+	box-shadow: 1px 2px 30px #df38d74d;
+	display: flex;
+	flex-direction: column;
+	.title {
+		text-align: center;
+		margin-bottom: 0.5rem;
+	}
+	.newCard {
+		align-self: flex-end;
+		margin-right: 1.1rem;
+	}
+
+	.clear {
+		align-self: center;
+	}
+}

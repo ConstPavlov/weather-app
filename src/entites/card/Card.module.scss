@@ -23,13 +23,13 @@ $secondary: rgb(115, 66, 198);
 
 	.block {
 		display: flex;
-		align-items: center;
 		column-gap: 0.6rem;
 		margin-top: 0.65rem;
 	}
 
 	.info {
 		margin-bottom: 1rem;
+		min-height: 100px;
 		.weather {
 		}
 		.wind {

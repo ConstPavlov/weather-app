@@ -40,6 +40,34 @@ $primary: rgb(162, 107, 214);
 				color: transparent;
 			}
 		}
+
+		.namesBlock {
+			margin: 0.2rem;
+			padding: 0.3rem;
+			width: 100%;
+			border: 1px solid black;
+			border-radius: 4px;
+
+			.namesUl {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				.namesLi {
+					background-color: aliceblue;
+					text-align: center;
+					cursor: pointer;
+					width: 100%;
+					border-bottom: 1px solid rgb(134, 117, 117);
+					transition: background-color 0.5s ease-in-out;
+					margin-bottom: 0.4rem;
+
+					&:hover {
+						background-color: rgb(175, 185, 236);
+					}
+				}
+			}
+		}
 	}
 }
 .form_wrapper.active {

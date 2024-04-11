@@ -7,12 +7,14 @@ export const fetchCities = createAsyncThunk(
 	'cities/fetchCities',
 	async (city: string) => {
 		const response = await axios.get(
-			`${REACT_APP_API_URL}/data/2.5/weather?q=${city}&appid=${REACT_APP_API_KEY}`
+			`${REACT_APP_API_URL}/data/2.5/weather?q=${city}&cnt=5&appid=${REACT_APP_API_KEY}`
 		)
 
 		const data = await response.data
 		const weatherInfo = data.weather[0].description
 		const codIMG = data.weather[0].icon
+		const list = data.list
+		console.log(list)
 		const cityObj: ICard | null = {
 			id: Math.random(),
 			city: data.name,

@@ -1,30 +1,26 @@
-import React, {
-	FC,
-	FormEvent,
-	useCallback,
-	useEffect,
-	useMemo,
-	useRef,
-	useState
-} from 'react'
+import React, { FC, FormEvent, useCallback, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { CustomButton, useOutside } from '../../shared'
 import { handleModalClick } from '../helpers/handlerClickModal'
 import { fetchCities } from '../store/cities/asyncAction'
 import { RootState, useAppDispatch } from '../store/store'
-import { queryFilter } from '../utils/queryFilter'
 import styles from './NewCara.module.scss'
-import debounce from 'lodash/debounce'
 import { alertsByStatus } from '../alerts/alertsByStatus'
+import { useInputCity } from '../hooks/useInputCity'
 
 const NewCard: FC = () => {
 	const dispatch = useAppDispatch()
-	const [city, setCity] = useState<string>('')
-	const [isSelect, setIsSelect] = useState<boolean>(false)
-	const [resultsNames, setResultsNames] = useState<string[]>([])
 	const { currentCard, status, cards } = useSelector(
 		(state: RootState) => state.cities
 	)
+	const {
+		handleChangeInput,
+		handleClickSelectObj,
+		city,
+		isSelect,
+		resultsNames,
+		setCity
+	} = useInputCity(cards)
 	const inputEl = useRef<HTMLInputElement>(null)
 	const { isShow, setIsShow, ref } = useOutside(false)
 
@@ -55,25 +51,6 @@ const NewCard: FC = () => {
 		[dispatch, city, currentCard]
 	)
 
-	const handleClickSelectObj = useCallback((value: string) => {
-		setCity(value)
-		setIsSelect(false)
-	}, [])
-
-	const onInputInputHandler = useMemo(
-		() =>
-			debounce((e: any) => {
-				const value = e.target.value
-				setIsSelect(true)
-				if (value.length < 2) return
-				const result = queryFilter(value, cards)
-				if (result) {
-					setResultsNames(result)
-				}
-			}, 1000),
-		[]
-	)
-
 	return (
 		<div className={styles.block}>
 			<CustomButton ref={ref} onClick={() => setIsShow(!isShow)}>
@@ -88,12 +65,10 @@ const NewCard: FC = () => {
 			>
 				{isShow && (
 					<form className={styles.form} onSubmit={addNewPost}>
-						{/*Управляемый  компонент */}
 						<div className={styles.control} onClick={handleModalClick}>
 							<input
 								ref={inputEl}
-								onInput={onInputInputHandler}
-								onChange={(e: any) => setCity(e.target.value)}
+								onInput={(e: any) => handleChangeInput(e.target.value)}
 								value={city}
 								type='text'
 								placeholder='Название города'

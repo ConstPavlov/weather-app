@@ -1,8 +1,7 @@
-type TypeName = {
-	city: string
-}
-export const queryFilter = (value: string, array: TypeName[]) => {
-	const listNames = array ? array.map((card) => card.city) : []
+import { ICard } from '../../entites'
+
+export const queryFilter = (value: string, array: ICard[]) => {
+	const listNames: string[] = array ? array.map((card) => card.city) : []
 	if (listNames.length === 0) {
 		return
 	}
